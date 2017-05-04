@@ -12,6 +12,7 @@ export default {
   output: {
     filename: 'js/bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: 'src/public',
     publicPath: isProd ? '/static/' : `http://localhost:${WDS_PORT}/dist/`,
   },
   module: {
@@ -23,6 +24,9 @@ export default {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  sassLoader: {
+        includePaths: [path.resolve(__dirname, './scss')],
+    },
   devServer: {
     port: WDS_PORT,
   },
